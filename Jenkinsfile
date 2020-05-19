@@ -19,13 +19,11 @@ pipeline {
                 bat 'cd '
             }
         }
-        stage('Test clone repo') {
-            stage('Git Checkout') {
-                gitcheckout(
-                        branch: "master",
-                        url: "https://github.com/YonathanGuez/Chrome_affiliateAmz.git"
-                )
-            }
+        stage('Git Checkout') {
+            gitcheckout(
+                    branch: "master",
+                    url: "https://github.com/YonathanGuez/Chrome_affiliateAmz.git"
+            )
         }
     }
 
