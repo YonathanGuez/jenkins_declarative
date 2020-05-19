@@ -2,19 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build test') {
             steps {
-                echo 'Building..'
+                echo 'check hello'
             }
         }
-        stage('Test') {
+        stage('Test 1') {
             steps {
-                echo 'Testing..'
+               bat '''
+                    echo "PATH=%PATH%"
+               '''
             }
         }
-        stage('Deploy') {
+        stage('Test 2') {
             steps {
-                echo 'Deploying....'
+                bat 'cd '
             }
         }
     }
