@@ -1,4 +1,5 @@
 @Library('test_jenkins@master') _
+import repo
 pipeline {
     agent any
     stages {
