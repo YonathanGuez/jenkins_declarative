@@ -1,3 +1,5 @@
+@Library('test_jenkins')_
+
 pipeline {
     agent any
 
@@ -19,5 +21,13 @@ pipeline {
                 bat 'cd '
             }
         }
+        stage('Test clone repo') {
+            steps {
+                def myrepo = new repo.Pullrepo()
+                myrepo.checkOutFrom(repo)
+                bat 'dir'
+            }
+        }
     }
+
 }
