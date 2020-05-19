@@ -1,8 +1,6 @@
-@Library('test_jenkins')_
-
+@Library('test_jenkins@master') _
 pipeline {
     agent any
-
     stages {
         stage('Build test') {
             steps {
@@ -22,10 +20,11 @@ pipeline {
             }
         }
         stage('Test clone repo') {
-            steps {
-                def myrepo = new repo.Pullrepo()
-                myrepo.checkOutFrom(repo)
-                bat 'dir'
+            stage('Git Checkout') {
+                gitcheckout(
+                        branch: "master",
+                        url: "https://github.com/YonathanGuez/Chrome_affiliateAmz.git"
+                )
             }
         }
     }
