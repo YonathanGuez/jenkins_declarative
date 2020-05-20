@@ -5,7 +5,7 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'master')
         string(name: 'REPOSITORY', defaultValue: 'selenium_jobs')
     }
-    wrappers {
+    options{
         preBuildCleanup { // Clean before build
             includePattern('**/target/**')
             deleteDirectories()
