@@ -45,5 +45,12 @@ Result in the log :
 [WS-CLEANUP] Deferred wipeout is used...
 [WS-CLEANUP] done
 ```
-
+we can also add this option at the begin but now inside of the stages:
+```
+stage('Clean workspace'){
+    steps {
+        cleanWs()
+    }
+}
+```
 It Use full for keep space and do only tests verifications
