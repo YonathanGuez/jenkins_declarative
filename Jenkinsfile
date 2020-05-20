@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Print Param') {
             steps {
-                echo ${params.master}
-                echo ${params.REPOSITORY}
+                echo params.master
+                echo params.REPOSITORY
             }
         }
         stage('Git Checkout') {
