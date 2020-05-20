@@ -7,26 +7,17 @@ pipeline {
                 echo 'check hello'
             }
         }
-        stage('Test 1') {
+        stage('Test 1: Print all Path on windows') {
             steps {
                bat '''
                     echo "PATH=%PATH%"
                '''
             }
         }
-        stage('Test 2') {
+        stage('Test 2: go to the root ') {
             steps {
                 bat 'cd '
             }
         }
-        stage('Git Checkout') {
-            steps {
-                gitCheckout(
-                        branch: "master",
-                        url: "https://github.com/YonathanGuez/Chrome_affiliateAmz.git"
-                )
-            }
-        }
     }
-
 }
