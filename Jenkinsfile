@@ -1,5 +1,4 @@
 @Library('test_jenkins@master') _
-import repo
 pipeline {
     agent any
     stages {
@@ -21,10 +20,12 @@ pipeline {
             }
         }
         stage('Git Checkout') {
-            gitcheckout(
-                    branch: "master",
-                    url: "https://github.com/YonathanGuez/Chrome_affiliateAmz.git"
-            )
+            steps {
+                vcCheckout(
+                        branch: "master",
+                        url: "https://github.com/YonathanGuez/Chrome_affiliateAmz.git"
+                )
+            }
         }
     }
 
