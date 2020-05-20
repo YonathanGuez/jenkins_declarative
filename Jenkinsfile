@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Git Checkout') {
             steps {
-                vcCheckout(
+                gitCheckout(
                         branch: "master",
                         url: "https://github.com/YonathanGuez/Chrome_affiliateAmz.git"
                 )
