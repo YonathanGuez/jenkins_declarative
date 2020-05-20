@@ -4,9 +4,14 @@ pipeline {
     parameters {
         string(name: 'BRANCH', defaultValue: 'master')
         string(name: 'REPOSITORY', defaultValue: 'selenium_jobs')
-        string(name: 'MAVERIQ_VERSION', defaultValue: '')
     }
     stages {
+        stage('Print Param') {
+            steps {
+                echo ${params.master}
+                echo ${params.REPOSITORY}
+            }
+        }
         stage('Git Checkout') {
             steps {
                 gitCheckout(
