@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Print Param') {
             steps {
-                echo params.master
+                echo params.BRANCH
                 echo params.REPOSITORY
             }
         }
         stage('Git Checkout') {
             steps {
                 gitCheckout(
-                        branch: "${params.master}",
+                        branch: "${params.BRANCH}",
                         url: "https://github.com/YonathanGuez/${params.REPOSITORY}.git"
                 )
             }
