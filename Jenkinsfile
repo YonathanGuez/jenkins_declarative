@@ -1,22 +1,18 @@
 @Library('test_jenkins@master') _
 pipeline {
     agent any
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'master')
+        string(name: 'REPOSITORY', defaultValue: 'selenium_jobs')
+        string(name: 'MAVERIQ_VERSION', defaultValue: '')
+    }
     stages {
-        stage('Build test') {
+        stage('Git Checkout') {
             steps {
-                echo 'check hello'
-            }
-        }
-        stage('Test 1: Print all Path on windows') {
-            steps {
-               bat '''
-                    echo "PATH=%PATH%"
-               '''
-            }
-        }
-        stage('Test 2: go to the root ') {
-            steps {
-                bat 'cd '
+                gitCheckout(
+                        branch: "${params.master}",
+                        url: "https://github.com/YonathanGuez/${params.REPOSITORY}.git"
+                )
             }
         }
     }
