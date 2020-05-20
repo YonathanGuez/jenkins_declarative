@@ -5,14 +5,12 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'master')
         string(name: 'REPOSITORY', defaultValue: 'selenium_jobs')
     }
-    options{
-        preBuildCleanup { // Clean before build
-            includePattern('**/target/**')
-            deleteDirectories()
-            cleanupParameter('CLEANUP')
-        }
-    }
     stages {
+        stage('Clean workspace'){
+            steps {
+                cleanWs()
+            }
+        }
         stage('Print Param') {
             steps {
                 echo params.BRANCH
