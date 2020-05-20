@@ -1,8 +1,5 @@
 # jenkins_declarative
 
-## Master :
-How to write a basic pipeline
-
 ## Branch parameter_jenkins:
 
 ### 1) Configuration Parameters :
