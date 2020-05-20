@@ -23,5 +23,5 @@ How to write a basic pipeline
   <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/resulta_param.png">
 </p>
 <p align="center">
-  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/resul_build.png">
+  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/result_build.png">
 </p>
