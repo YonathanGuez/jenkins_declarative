@@ -27,3 +27,23 @@ We can see on the log if our build is validate:
 <p align="center">
   <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/result_build.png">
 </p>
+
+## Delete all workspace:
+We need to put this at the end of stages ( not inside ):
+```
+ post {
+        always {
+            cleanWs()
+        }
+    }
+```
+Result in the log :
+```
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+```
+
+It Use full for keep space and do only tests verifications
