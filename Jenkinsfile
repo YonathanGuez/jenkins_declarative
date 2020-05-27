@@ -11,20 +11,21 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('Print Param') {
+        stage('Print all files') {
             steps {
-                echo params.BRANCH
-                echo params.REPOSITORY
+//                echo params.BRANCH
+//                echo params.REPOSITORY
+                bat 'dir'
             }
         }
-        stage('Git Checkout') {
-            steps {
-                gitCheckout(
-                        branch: "${params.BRANCH}",
-                        url: "https://github.com/YonathanGuez/${params.REPOSITORY}.git"
-                )
-            }
-        }
+//        stage('Git Checkout') {
+//            steps {
+//                gitCheckout(
+//                        branch: "${params.BRANCH}",
+//                        url: "https://github.com/YonathanGuez/${params.REPOSITORY}.git"
+//                )
+//            }
+//        }
 
     }
     post {
