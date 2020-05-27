@@ -1,7 +1,9 @@
 # jenkins_declarative
 
 ## Branch upload_file:
-
+<p align="center">
+  <img width="800" height="500" src="">
+</p>
 
 ## 1) Method with input:
 we will create a file input :
