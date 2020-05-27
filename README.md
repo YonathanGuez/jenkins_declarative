@@ -2,7 +2,7 @@
 
 ## Branch upload_file:
 <p align="center">
-  <img width="800" height="500" src="">
+  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/upload_file/img/upload_file.png">
 </p>
 
 ## 1) Method with input:
