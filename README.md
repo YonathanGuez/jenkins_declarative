@@ -1,56 +1,37 @@
 # jenkins_declarative
 
-## Branch parameter_jenkins:
+## Branch upload_file:
 
-### 1) Configuration Parameters :
-We need to add all paramemeters in jenkinsfile to our parameter:
 
-<p align="center">
-  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/config_add_parm.png">
-</p>
-<p align="center">
-  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/config_add_parm2.png">
-</p>
-
-### 2) Configuration Branch :
-For this example we need to change the branch and work on parameter_jenkins:
-<p align="center">
-  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/conf_branch.png">
-</p>
-
-### Result:
-Run the build and change those parameter if you want: 
-<p align="center">
-  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/resulta_param.png">
-</p>
-We can see on the log if our build is validate:
-<p align="center">
-  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/parameter_jenkins/img/result_build.png">
-</p>
-
-## Delete all workspace:
-We need to put this at the end of stages ( not inside ):
+## 1) Method with input:
+we will create a file input :
 ```
- post {
-        always {
-            cleanWs()
-        }
-    }
-```
-Result in the log :
-```
-[Pipeline] { (Declarative: Post Actions)
-[Pipeline] cleanWs
-[WS-CLEANUP] Deleting project workspace...
-[WS-CLEANUP] Deferred wipeout is used...
-[WS-CLEANUP] done
-```
-we can also add this option at the begin but now inside of the stages:
-```
-stage('Clean workspace'){
-    steps {
-        cleanWs()
-    }
+script{
+    def inputFile = input message: 'Upload file', parameters: [file(name: 'file.txt')]
+    new hudson.FilePath(new File("$workspace/file.txt")).copyFrom(inputFile)
+    inputFile.delete()
 }
 ```
-It Use full for keep space and do only tests verifications
+we can check if the file is download with :
+```
+steps{
+    echo fileExists('file.txt').toString()
+}
+```
+
+## 2) Error with Scripts not permitted:
+Error example and solution:
+<p align="center">
+  <img width="800" height="500" src="">
+</p>
+we use some library and jenkins need our autorisation for that : 
+```
+method hudson.FilePath copyFrom hudson.FilePath
+method hudson.FilePath delete
+new hudson.FilePath java.io.File
+new java.io.File java.lang.String
+```
+we will put this into Jenkins > Management > ScriptApproval
+
+## Why not use file Parameter :
+File parameter not import files into declarative pipeline it s a bug 
