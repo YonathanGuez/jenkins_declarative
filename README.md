@@ -22,7 +22,7 @@ steps{
 }
 ```
 
-## 2) Error with Scripts not permitted:
+## 2) Error and solution: Scripts not permitted:
 Error example and solution:
 <p align="center">
   <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/upload_file/img/solution_error.png">
