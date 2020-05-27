@@ -13,6 +13,7 @@ script{
 }
 ```
 we can check if the file is download with :
+
 ```
 steps{
     echo fileExists('file.txt').toString()
@@ -24,14 +25,22 @@ Error example and solution:
 <p align="center">
   <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/upload_file/img/solution_error.png">
 </p>
-we use some library and jenkins need our autorisation for that : 
+we use some library and jenkins need our autorisation for that :
+
 ```
 method hudson.FilePath copyFrom hudson.FilePath
 method hudson.FilePath delete
 new hudson.FilePath java.io.File
 new java.io.File java.lang.String
 ```
+
 we will put this into Jenkins > Management > ScriptApproval
+<p align="center">
+  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/upload_file/img/conf_script_approval.png">
+</p>
+<p align="center">
+  <img width="800" height="500" src="https://github.com/YonathanGuez/jenkins_declarative/blob/upload_file/img/conf_script_approval2.png">
+</p>
 
 ## Why not use file Parameter :
 File parameter not import files into declarative pipeline it s a bug 
